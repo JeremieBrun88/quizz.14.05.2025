@@ -44,7 +44,7 @@ let tab =
     },
     {
         Question: "Pour finir, kupacronix le grand était un grand roi d'Egypte, épelles-moi cela en 4 lettres?",
-        A: "Pfff",
+        A: "Super moiT-moiT",
         B: "Haha",
         C: "Cela",
         D: "Je demande l'appel à un ami!",
@@ -52,7 +52,7 @@ let tab =
         bonneReponse: "C",
     }]
 
-
+/*
 tab.forEach(objet => {
     let reponseUtilisateur = prompt(`${objet.Question} : \n
         A : ${objet.A} \n
@@ -62,11 +62,57 @@ tab.forEach(objet => {
         `) // pour chaque objet que tu récupère, prends la question du-dit objet
 
     if (reponseUtilisateur == objet.bonneReponse) {
-        alert("VRAI")
-    } // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
+        alert("VRAI")   // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
+    }
     else {
-        alert(`FAUX, la réponse est ${objet.bonneReponse}`)
+        alert(`FAUX, la réponse est ${objet[objet.bonneReponse]}`)  // récupère et affiche la bonne réponse!!!
     }
 
+    alert("Passons à la question suivante")
 })
+*/
+
+let h3 = document.getElementById("bouton")
+
+h3.addEventListener("click", Jouer)
+
+
+function Jouer() {
+    tab.forEach(objet => {
+
+        document.body.innerHTML += `<div>
+      
+        <p>Quel est le moteur le moins fiable du moment?</p>
+        <ul class="pad fontDiv alignCenter">
+            <li>A -> Le 1.2 TCE</li>
+            <li>B -> Le 1.2 Puretech Turbo</li>
+            <li>C -> Le 0.9 TwinAir</li>
+            <li>D -> La réponse D</li>
+        </ul>
+
+        </div>`
+
+        /*
+        
+            let reponseUtilisateur = prompt(`${objet.Question} : \n
+                A : ${objet.A} \n
+                B : ${objet.B} \n 
+                C : ${objet.C} \n
+                D : ${objet.D}
+                `) // pour chaque objet que tu récupère, prends la question du-dit objet
+        */
+
+
+        if (clickUtilisateur == objet.bonneReponse) {
+            alert("VRAI")   // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
+        }
+        else {
+            alert(`FAUX, la réponse est ${objet[objet.bonneReponse]}`)  // récupère et affiche la bonne réponse!!!
+        }
+
+        alert("Passons à la question suivante")
+     
+    })
+
+}
 
