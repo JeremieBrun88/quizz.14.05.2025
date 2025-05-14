@@ -9,7 +9,7 @@ let tab =
     [{
         Question: "Quel est le moteur le moins fiable du moment?",
         A: "1.2 TCE",
-        B: "1.2 Puretech",
+        B: "1.2 Puretech Turbo",
         C: "0.9 TwinAir",
         D: "la réponse D",
 
@@ -23,7 +23,34 @@ let tab =
         D: "PEUGEOT",
 
         bonneReponse: "C",
-    },]
+    },
+    {
+        Question: "Selon vous, cette question est utile?",
+        A: "La réponse D",
+        B: "Fraise des bois",
+        C: "Jocker",
+        D: "J'ai rien dit moi!",
+
+        bonneReponse: "D",
+    },
+    {
+        Question: "Quel est la couleur du cheval blanc d'henri IV ?",
+        A: "Gris",
+        B: "Blanc",
+        C: "Stéphanie de Monaco",
+        D: "Vous pouvez répéter la question?",
+
+        bonneReponse: "B",
+    },
+    {
+        Question: "Pour finir, kupacronix le grand était un grand roi d'Egypte, épelles-moi cela en 4 lettres?",
+        A: "Pfff",
+        B: "Haha",
+        C: "Cela",
+        D: "Je demande l'appel à un ami!",
+
+        bonneReponse: "C",
+    }]
 
 
 tab.forEach(objet => {
@@ -33,9 +60,13 @@ tab.forEach(objet => {
         C : ${objet.C} \n
         D : ${objet.D}
         `) // pour chaque objet que tu récupère, prends la question du-dit objet
-    
-    if (reponseUtilisateur === objet.bonneReponse) { 
-        alert("vrai") } // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
+
+    if (reponseUtilisateur == objet.bonneReponse) {
+        alert("VRAI")
+    } // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
     else {
-        alert("faux") }
+        alert(`FAUX, la réponse est ${objet.bonneReponse}`)
+    }
+
 })
+
