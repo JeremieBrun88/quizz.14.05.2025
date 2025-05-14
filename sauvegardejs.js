@@ -73,21 +73,14 @@ tab.forEach(objet => {
 */
 
 let h3 = document.getElementById("bouton")
+
 h3.addEventListener("click", Jouer)
-
-let div = document.getElementById("div")
-div.addEventListener("click", Choisir)
-
-function Choisir() {
-console.log ("coucou")
-}
-
 
 
 function Jouer() {
     tab.forEach(objet => {
 
-        div.innerHTML += `<div>
+        document.body.innerHTML += `<div>
       
         <p>Quel est le moteur le moins fiable du moment?</p>
         <ul class="pad fontDiv alignCenter">
@@ -109,7 +102,7 @@ function Jouer() {
                 `) // pour chaque objet que tu récupère, prends la question du-dit objet
         */
 
-/*
+
         if (clickUtilisateur == objet.bonneReponse) {
             alert("VRAI")   // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
         }
@@ -118,7 +111,7 @@ function Jouer() {
         }
 
         alert("Passons à la question suivante")
-     */
+     
     })
 
 }

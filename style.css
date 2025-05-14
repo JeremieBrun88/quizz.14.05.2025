@@ -34,7 +34,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 40px;
     font-style: italic;
-    padding: 3àpx;
+    padding: 30px;
 }
 
 h1 {
@@ -67,4 +67,9 @@ p {
 
 .w50 {
     width: 50%;
+}
+
+#div{
+    height: 150px;
+    background-color: blue;
 }
