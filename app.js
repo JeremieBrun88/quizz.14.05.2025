@@ -9,7 +9,7 @@ let tab =
     [{
         Question: "Quel est le moteur le moins fiable du moment?",
         A: "1.2 TCE",
-        B: "1.2 Puretech Turbo",
+        B: "1.2 Puretech",
         C: "0.9 TwinAir",
         D: "la réponse D",
 
@@ -34,7 +34,7 @@ let tab =
         bonneReponse: "D",
     },
     {
-        Question: "Quel est la couleur du cheval blanc d'henri IV ?",
+        Question: "Quelle est la couleur du cheval blanc d'Henri IV ?",
         A: "Gris",
         B: "Blanc",
         C: "Stéphanie de Monaco",
@@ -43,7 +43,7 @@ let tab =
         bonneReponse: "B",
     },
     {
-        Question: "Pour finir, kupacronix le grand était un grand roi d'Egypte, épelles-moi cela en 4 lettres?",
+        Question: "Pour finir, kupacronix le grand était un grand roi d'Egypte, épelle-moi cela en 4 lettres?",
         A: "Super moiT-moiT",
         B: "Haha",
         C: "Cela",
@@ -79,7 +79,7 @@ let div = document.getElementById("div")
 div.addEventListener("click", Choisir)
 
 function Choisir() {
-console.log ("coucou")
+    console.log("coucou")
 }
 
 
@@ -89,16 +89,16 @@ function Jouer() {
 
         div.innerHTML += `<div>
       
-        <p>Quel est le moteur le moins fiable du moment?</p>
+        <p>${objet.Question}</p>
         <ul class="pad fontDiv alignCenter">
-            <li>A -> Le 1.2 TCE</li>
-            <li>B -> Le 1.2 Puretech Turbo</li>
-            <li>C -> Le 0.9 TwinAir</li>
-            <li>D -> La réponse D</li>
+            <li>A : ${objet.A}</li>
+            <li>B : ${objet.B}</li>
+            <li>C : ${objet.C}</li>
+            <li>D : ${objet.D}</li>
         </ul>
 
         </div>`
-
+    })}
         /*
         
             let reponseUtilisateur = prompt(`${objet.Question} : \n
@@ -109,17 +109,15 @@ function Jouer() {
                 `) // pour chaque objet que tu récupère, prends la question du-dit objet
         */
 
-/*
-        if (clickUtilisateur == objet.bonneReponse) {
-            alert("VRAI")   // si la réponse utilisateur est strictement la même que la bonne réponse, alors je marque "vrai"
-        }
-        else {
-            alert(`FAUX, la réponse est ${objet[objet.bonneReponse]}`)  // récupère et affiche la bonne réponse!!!
-        }
+        const reponses = document.querySelectorAll('.reponse');
 
-        alert("Passons à la question suivante")
-     */
-    })
+        reponses.forEach(reponse => {
+            reponse.addEventListener('click', () => {
+                // Réinitialise les styles
+                reponses.forEach(r => r.classList.remove('vrai', 'faux'));
 
-}
-
+                // Vérifie si la réponse est correcte
+                const estVrai = reponse.dataset.vrai === "true";
+                reponse.classList.add(estVrai ? 'vrai' : 'faux');
+                alert(estVrai ? "Bonne réponse !" : "Mauvaise réponse.");
+            })})
