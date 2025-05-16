@@ -78,12 +78,8 @@ h3.addEventListener("click", Jouer)
 let div = document.getElementById("div")
 div.addEventListener("click", Choisir)
 
-function Choisir() {
-    console.log("coucou")
-}
-
-
-
+ // fonction jouer, doit donner la bonne réponse, avec "vrai" ou "faux", avec le click sur une réponse
+ 
 function Jouer() {
     tab.forEach(objet => {
 
@@ -109,15 +105,4 @@ function Jouer() {
                 `) // pour chaque objet que tu récupère, prends la question du-dit objet
         */
 
-        const reponses = document.querySelectorAll('.reponse');
-
-        reponses.forEach(reponse => {
-            reponse.addEventListener('click', () => {
-                // Réinitialise les styles
-                reponses.forEach(r => r.classList.remove('vrai', 'faux'));
-
-                // Vérifie si la réponse est correcte
-                const estVrai = reponse.dataset.vrai === "true";
-                reponse.classList.add(estVrai ? 'vrai' : 'faux');
-                alert(estVrai ? "Bonne réponse !" : "Mauvaise réponse.");
-            })})
+     
