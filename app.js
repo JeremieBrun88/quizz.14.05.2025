@@ -25,11 +25,11 @@ let tab =
         bonneReponse: "C",
     },
     {
-        Question: "Selon vous, cette question est utile?",
-        A: "La réponse D",
-        B: "Fraise des bois",
+        Question: "Peut-on prendre une clé de 13 si une clé de 12 suffit?",
+        A: "C'est qui 13?",
+        B: "Qui ne tente rien, n'a rien!",
         C: "Jocker",
-        D: "J'ai rien dit moi!",
+        D: "Non, juste pour abimer le matériel",
 
         bonneReponse: "D",
     },
@@ -71,7 +71,7 @@ tab.forEach(objet => {
     alert("Passons à la question suivante")
 })
 */
-
+/*
 let h3 = document.getElementById("bouton")
 h3.addEventListener("click", Jouer)
 
@@ -95,7 +95,7 @@ function Jouer() {
 
         </div>`
     })}
-        /*
+        
         
             let reponseUtilisateur = prompt(`${objet.Question} : \n
                 A : ${objet.A} \n
@@ -106,3 +106,49 @@ function Jouer() {
         */
 
      
+let currentIndex = 0;
+let div = document.getElementById("div");
+let bouton = document.getElementById("bouton");
+
+bouton.addEventListener("click", () => {
+    currentIndex = 0;
+    afficherQuestion();
+});
+
+function afficherQuestion() {
+    if (currentIndex >= tab.length) {
+        div.innerHTML = "<p>Quiz terminé !</p>";
+        return;
+    }
+
+    let q = tab[currentIndex];
+
+    div.innerHTML = `
+        <p>${q.Question}</p>
+        <ul>
+            <li><button data-rep="A">${q.A}</button></li>
+            <li><button data-rep="B">${q.B}</button></li>
+            <li><button data-rep="C">${q.C}</button></li>
+            <li><button data-rep="D">${q.D}</button></li>
+        </ul>
+    `;
+
+    document.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", verifierReponse);
+    });
+}
+
+function verifierReponse(event) {
+    let reponse = event.target.dataset.rep;
+    let bonne = tab[currentIndex].bonneReponse;
+
+    if (reponse === bonne) {
+        alert("Bravo !");
+    } else {
+        let bonneTexte = tab[currentIndex][bonne];
+        alert(`Perdu ! La bonne réponse était : ${bonne} : ${bonneTexte}`);
+    }
+
+    currentIndex++;
+    afficherQuestion();
+}
